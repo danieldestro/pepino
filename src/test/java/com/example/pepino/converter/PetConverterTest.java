@@ -123,6 +123,6 @@ public class PetConverterTest {
     }
 
     void assertType(Pet pet, Specie specie) {
-        assertThat(pet.getClass().getSimpleName().toUpperCase()).isEqualTo(specie.toString());
+        assertThat(pet.getClass().getSimpleName().toUpperCase()).isEqualTo(specie.name());
     }
 }

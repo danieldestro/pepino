@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,8 +18,12 @@ import com.example.pepino.ValidationException;
 import com.example.pepino.api.data.PetDTO;
 import com.example.pepino.converter.PetConverter;
 import com.example.pepino.model.Pet;
+import com.example.pepino.model.Specie;
 import com.example.pepino.service.PetService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @ResponseBody
 @RestController
 @RequestMapping(PetApi.URI)
@@ -56,8 +61,10 @@ public class PetApi {
     }
 
     @GetMapping("/count")
-    public ResponseEntity<Long> count() {
-        return ResponseEntity.ok(service.count());
+    public ResponseEntity<Long> count(@RequestParam(name = "specie", required = false) Specie specie) {
+        log.info("count specie: " + specie);
+        Long count = specie == null ? service.count() : service.count(specie);
+        return ResponseEntity.ok(count);
     }
 
     @GetMapping("/count/species")

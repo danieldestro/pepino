@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.example.pepino.ValidationException;
 import com.example.pepino.model.Pet;
+import com.example.pepino.model.Specie;
 
 public interface PetService {
 
@@ -15,6 +16,8 @@ public interface PetService {
     List<Pet> findAll();
 
     long count();
+
+    long count(Specie specie);
 
     Map<Pet, Integer> countSpecies();
 }

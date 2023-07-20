@@ -59,6 +59,13 @@ public class StepsDefinitions extends CucumberSpringConfig {
         assertThat(count).isEqualTo(apiCount);
     }
 
+    @When("I can count {int} {specieType}")
+    public void countPetsApi(int count, Specie specie) {
+        log.info("STEP: I can count {int} {specieType}");
+        long apiCount = petApiClient.count(specie).getBody();
+        assertThat(count).isEqualTo(apiCount);
+    }
+
     @ParameterType(name = "colorType", value = "[A-Z]+")
     public Color colorType(String color) {
         return Color.valueOf(color);

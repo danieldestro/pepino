@@ -10,6 +10,7 @@ import com.example.pepino.ValidationException;
 import com.example.pepino.data.CustomPetRepository;
 import com.example.pepino.data.PetRepository;
 import com.example.pepino.model.Pet;
+import com.example.pepino.model.Specie;
 
 @Service
 public class PetServiceImpl implements PetService {
@@ -44,6 +45,11 @@ public class PetServiceImpl implements PetService {
     @Override
     public long count() {
         return repository.count();
+    }
+
+    @Override
+    public long count(Specie specie) {
+        return repository.countGroupBySpecie(specie.name());
     }
 
     @Override
