@@ -8,44 +8,44 @@ Scenario: Check Pet Count Zero
 	Then there are 0 pets
 
 Scenario: Check Pet Count
-	When I create a DOG with data
+	Given I create a DOG with data
 		| name 		| color | weight |
 		| Chewbacca	| WHITE | 8		 |
 	Then there are 1 pets
 
 Scenario: Check Pet Count of Different Species
-	When I create a DOG with data
+	Given I create a DOG with data
 		| name 		| color | weight |
 		| Chewbacca	| WHITE | 10	 |
-	When I create a CAT with data
+	 And I create a CAT with data
 		| name 		| color | weight |
 		| Gargamel	| BLACK | 5		 |
-	When I create a LIZARD with data
+	 And I create a LIZARD with data
 		| name 		| color | weight |
 		| Geico		| GREEN | 2		 |
 	Then there are 3 pets
 	 And I can count 3 pets
 
 Scenario: Check Pet Count of Different Species
-	When I create a DOG with data
+	Given I create a DOG with data
 		| name 		| color | weight |
 		| Chewbacca	| WHITE | 10	 |
-	When I create a DOG with data
+	 And I create a DOG with data
 		| name 		| color | weight |
 		| Xuxa		| BLACK | 12	 |
-	When I create a DOG with data
+	 And I create a DOG with data
 		| name 		| color | weight |
 		| Caramelo	| BROWN | 9		 |
-	When I create a CAT with data
+	 And I create a CAT with data
 		| name 		| color | weight |
 		| Gargamel	| BLACK | 5		 |
-	When I create a CAT with data
+	 And I create a CAT with data
 		| name 		| color | weight |
 		| Whiskas	| WHITE | 3		 |
-	When I create a LIZARD with data
+	 And I create a LIZARD with data
 		| name 		| color | weight |
 		| Geico		| GREEN | 2		 |
-	 And I can count 6 pets
+	Then I can count 6 pets
 	 And I can count 3 DOG
 	 And I can count 2 CAT
 	 And I can count 1 LIZARD
