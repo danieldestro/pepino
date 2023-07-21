@@ -7,6 +7,7 @@ Scenario: Check Pet Count Zero
 	When I do nothing
 	Then there are 0 pets
 
+#@Skip # use this tag to skip a particular Scenario if needed
 Scenario: Check Pet Count
 	Given I create a DOG with data
 		| name 		| color | weight |
